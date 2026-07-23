@@ -1,0 +1,32 @@
+services:
+  # Python FastAPI ML model service
+  - type: web
+    name: cropcast-ml-model
+    runtime: python
+    rootDir: ML model
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+
+  # Node/Express backend
+  - type: web
+    name: cropcast-backend
+    runtime: node
+    rootDir: bk
+    plan: free
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: MONGO_URI
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+      - key: ML_API_URL
+        sync: false
