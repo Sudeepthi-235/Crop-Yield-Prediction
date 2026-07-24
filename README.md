@@ -30,8 +30,8 @@ Experience the deployed application:
 
 https://crop-yield-prediction-3-8owu.onrender.com
 
-If the ML model request is failed, then the render probably made the ml model servie to sleep, so wake up with this link below:
-https://crop-yield-prediction-upgr.onrender.com/docs
+> 💡 **Note on Free-Tier Hosting:**  
+> If you get an *`ML model request failed`* error, Render has likely put the ML microservice to sleep due to inactivity. Simply click **[Wake Up ML Service](https://crop-yield-prediction-upgr.onrender.com/docs)**, wait ~30 seconds for the FastAPI page to load, and try predicting again!
 
 ## 🎯 Purpose
 
