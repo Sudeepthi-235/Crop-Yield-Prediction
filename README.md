@@ -29,6 +29,7 @@ The platform leverages **Machine Learning and environmental insights** to analyz
 Experience the deployed application:
 
 https://crop-yield-prediction-3-8owu.onrender.com
+**Try the Live App:** [crop-yield-prediction-3-8owu.onrender.com](https://crop-yield-prediction-3-8owu.onrender.com)
 
 ## 🎯 Purpose
 
