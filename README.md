@@ -29,7 +29,9 @@ The platform leverages **Machine Learning and environmental insights** to analyz
 Experience the deployed application:
 
 https://crop-yield-prediction-3-8owu.onrender.com
-**Try the Live App:** [crop-yield-prediction-3-8owu.onrender.com](https://crop-yield-prediction-3-8owu.onrender.com)
+
+If the ML model request is failed, then the render probably made the ml model servie to sleep, so wake up with this link below:
+https://crop-yield-prediction-upgr.onrender.com/docs
 
 ## 🎯 Purpose
 
