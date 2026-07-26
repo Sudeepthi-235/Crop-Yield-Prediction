@@ -1,32 +1,31 @@
 services:
-  # Python FastAPI ML model service
   - type: web
-    name: cropcast-ml-model
-    runtime: python
-    rootDir: ML model
+    name: crop-yield-prediction
+    env: python
     plan: free
-    buildCommand: pip install -r requirements.txt
-    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    buildCommand: |
+      cd frontend && \
+      npm install && \
+      VITE_API_URL= npm run build && \
+      cd ../backend && \
+      pip install -r requirements.txt
+    startCommand: python backend/start.py
     envVars:
       - key: PYTHON_VERSION
         value: 3.11.9
-
-  # Node/Express backend
-  - type: web
-    name: cropcast-backend
-    runtime: node
-    rootDir: bk
-    plan: free
-    buildCommand: npm install
-    startCommand: node server.js
-    envVars:
       - key: NODE_ENV
         value: production
       - key: MONGO_URI
         sync: false
-      - key: JWT_SECRET
+      - key: MONGO_DB_NAME
+        value: cropcast
+      - key: CLERK_PUBLISHABLE_KEY
         sync: false
-      - key: FRONTEND_URL
+      - key: CLERK_SECRET_KEY
         sync: false
-      - key: ML_API_URL
+      - key: CLERK_ISSUER_DOMAIN
         sync: false
+      - key: VITE_CLERK_PUBLISHABLE_KEY
+        sync: false
+      - key: VITE_API_URL
+        value: ""
